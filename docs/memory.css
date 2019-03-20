@@ -1,0 +1,130 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#result {
+    visibility: hidden;
+    font-size: 60px;
+    color: rgb(142, 212, 253);
+    font-weight: bold;
+    position: absolute;
+    height: 15%;
+    width: 15%;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+    z-index: -2;
+}
+
+#result.visible {
+  visibility: visible;
+}
+
+#game-container {
+    padding: 3% 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    perspective: 1000px;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    margin: 20px 20px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    cursor: pointer;
+}
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.card.flip {
+    transform: rotateY(180deg); 
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.front, .back {
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+.back {
+  background: lightblue;
+}
+
+.front {
+    background: lightskyblue;
+    transform: rotateY(180deg);
+}
+
+img {
+    padding: 20% 20%;
+}
+
+p {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    background: lightblue;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    border: 1px solid lightskyblue;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+button:hover {
+    animation-name: change;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes change {
+    from {
+        width: 100px;
+        background-color: lightblue;
+        color: white
+    } to {
+        width: 130px;
+        background-color: rgb(215, 240, 255);
+        border: 5px solid lightseagreen;
+        color: lightseagreen;
+    }
+}
+
+button:focus {
+    outline: none;
+}
+
+footer {
+    text-align: right;
+    padding-right: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(149, 207, 221);
+}
